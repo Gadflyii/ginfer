@@ -1,0 +1,71 @@
+{
+  "schema": "ginfer.artifact-manifest",
+  "schema_version": 1,
+  "artifact": {
+    "filename": "qwen3_8_27b_dflash2_q4.ginfer",
+    "bytes": 19233276416,
+    "sha256": "3268315d0c90b7981cb5d86edcb60a427dcfbabb2185ffcb3f1a1090855b0771",
+    "container_version": 2,
+    "model_id": "qwen3.8-27b",
+    "weights_id": "groupwise-int-dflash2-q4",
+    "target_key": "qwen3_8_27b"
+  },
+  "source": {
+    "base": {
+      "repo_id": "Qwen/Qwen3.8-27B",
+      "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "download_source": "https://modelscope.cn/models/Qwen/Qwen3.8-27B",
+      "license": "Apache-2.0"
+    },
+    "dflash2": {
+      "repo_id": "incoai/Qwen3.8-27B-DFlash2",
+      "revision": "dedf8df68adfb1afeaf7b7480c0a0243108177b4",
+      "tensors": 81,
+      "source_dtype": "BF16"
+    }
+  },
+  "conversion": {
+    "recipe_id": "qwen3_8_27b-v1",
+    "dflash2_matrix_format": "Q4G64_F16S",
+    "converter_repository": "https://github.com/Neroued/ninfer",
+    "converter_revision": "582377c04ae04bc8faf7d0876d8e603f225b7d28",
+    "ranking_input": {
+      "path": "tools/freq_corpus/fixtures/ranking/ranking.train.counts.i64",
+      "sha256": "c692dc76388132c910547589b4fb4a0503fbd6ad50aaac6a509bbcb192a8afa5"
+    }
+  },
+  "runtime": {
+    "repository": "https://github.com/Neroued/ninfer",
+    "cuda_architectures": ["sm_86", "sm_89", "sm_120a"],
+    "default_speculative_backend": "dflash",
+    "default_draft_tokens": 4
+  },
+  "inventory": {
+    "objects": 1205,
+    "tensors": 1199,
+    "resources": 6,
+    "formats": {
+      "BF16": 614,
+      "FP32": 96,
+      "I32": 1,
+      "Q4G64_F16S": 232,
+      "Q5G64_F16S": 246,
+      "Q6G64_F16S": 1,
+      "W8G32_F16S": 9
+    },
+    "layouts": {
+      "contiguous-le-v1": 711,
+      "row-split-k128-v1": 488
+    },
+    "encodings": {
+      "raw-bytes-v1": 6
+    },
+    "bytes": {
+      "tensor": 19220236704,
+      "resource": 12837177,
+      "object": 19233073881,
+      "payload_span": 19233088000,
+      "alignment": 14119
+    }
+  }
+}
